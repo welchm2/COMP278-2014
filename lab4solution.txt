@@ -1,0 +1,106 @@
+1.) (a*b)' * (a'+b) * (b'+b) = a'
+	(a*b)' * (a'+b) * 1 = a'		Complement
+	(a*b)' * (a'+b) = a'			Identity
+	(a'+b') * (a'+b) = a'			DeMorgan
+	a' + (b*b') = a'				Distributive
+	a' + 0 = a'						Complement
+	a' = a'							Identity	
+	
+2.) c + (b*c)' = 1
+	c + b'+c' = 1						DeMorgan's
+	1 + b' = 1							Complement
+	1 = 1								Identity 
+	
+3.) (a+c) * (a*d + a*d') + a*c + c = a+c
+	(a+c) * (a*d + a*d') + c = a+c					Absorption
+	(a+c) * (a * (d+d')) + c = a+c					Associative
+	(a+c) * (a*1) + c = a+c							Complement
+	(a+c) * a+c = a+c								Identity
+	(a*a + a*c) + c = a+c							Distributive
+	a + a*c + c = a+c								Idempotence
+	c * (a+1) + a = a+c								Distributive
+	c * 1 + a = a + c								Identity
+	a + c = a + c									Identity
+	
+4.) a' * (a+b) + (b+a*a) * (a+b')
+	a' * (a+b) + (b+a) * (a+b')					Idempotence
+	a'*a + a'*b + (b+a) * (a+b')				Distributive
+	0 + a'*b + (b+a) * (a+b')					Complement
+	a'+b + (b*a + b*b' + a*a + a*b')			Distributive
+	a' + b + (b*a + 0 + a*a + a*b')				Complement
+	a' + b + ((b*a) + a + (a*b'))				Idempotence
+	a' + b + (a + (a + b'))						Absorption
+	a' + b + (a)								Absorption
+	1 + b										Complement
+	1											Identity						
+	
+5.) (a'*b') + (a'*b) + (a*b') = (a*b)'
+	(a'*b') + [(a'+a) * (a'+b') * (a+b) * (b+b')] = (a*b)'	Distributive
+	(a'*b') + [(a'+a) * (a'+b') * (a+b) * 1] = (a*b)'		Complement
+	(a'*b') + [(a'+a) * (a'+b') * (a+b)] = (a*b)'			Identity
+	(a'*b') + [1 * (a'+b') * (a+b)] = (a*b)'				Complement
+	(a'*b') + [(a'+b') * (a+b)] = (a*b)'					Identity
+	(a'*b') + (a'+b') * (a+b) = a'+b'						DeMorgan
+	(a'+b') + (a'*b') * (a+b) = a'+b'						Commutative
+	(a'+b') + (a+b)' * (a+b) = a'+b'						DeMorgan
+	(a'+b')	+ 0 = a'+b'										Complement
+	a'+b' = a'+b'											Identity
+	
+	
+Dual Expressions
+1.)(a * b)' * c + a' * 0
+
+2.) 0 * 0 + 1'
+
+Karnaugh Map
+1.)
+X	Y	Z	|	out
+0	0	0	|	0
+0	0	1	|	0
+----------------------
+0	1	0	|	0
+0	1	1	|	1
+----------------------
+1	0	0	|	0
+1	0	1	|	1
+----------------------
+1	1	0	|	1
+1	1	1	|	1
+
+X	Y	|	O
+0	0	|	0
+0	1	|	Z
+1	0	|	Z
+1	1	|	1
+
+2.)
+carry-in	A	B	A+B		carry-out
+0			0	0	0		0
+0			0	1	1		0
+0			1	0	1		0
+0			1	1	0		1
+1			0	0	1		0
+1			0	1	0		1
+1			1	0	0		1
+1			1	1	1		1
+
+
+
+x	y	z	A+B		carry-out		Sum		out
+0	0	0	0		0				B		0
+0	0	1	1		0				B		0
+------------------------------------------------------
+0	1	0	1		0				B'		B
+0	1	1	0		1				B'		B
+------------------------------------------------------
+1	0	0	1		0				B'		B
+1	0	1	0		1				B'		B
+-------------------------------------------------------
+1	1	0	0		1				B		1
+1	1	1	1		1				B		1
+
+x	y	sum		out
+0	0	B		0
+0	1	B'		B
+1	0	B'		B
+1	1	B'		1
